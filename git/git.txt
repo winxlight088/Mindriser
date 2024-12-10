@@ -4,3 +4,4 @@ rules for git commands:
 3. git commit -m "my messages"
 
 just writing anything,
+editing from github 
