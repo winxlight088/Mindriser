@@ -20,5 +20,10 @@ rules for git commands:
 <to change branch eg, from main to ansiha>
 git checkout ansiha
 
+<to push into github>
+8. git push -u origin <branch name>
+
+<to pull from github>
+9. git pull
 just writing anything,
 editing from github 
