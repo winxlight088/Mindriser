@@ -27,3 +27,9 @@ git checkout ansiha
 9. git pull
 just writing anything,
 editing from github 
+
+<activate the virtual env>
+10 env\Scripts\activate
+
+<run server>
+11. python manage.py runserver
