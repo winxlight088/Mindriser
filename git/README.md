@@ -28,8 +28,17 @@ git checkout ansiha
 just writing anything,
 editing from github 
 
-<activate the virtual env>
+<activate the virtual env cmd>
 10 env\Scripts\activate
 
 <run server>
 11. python manage.py runserver
+
+<!--requirements file create-->
+pip freeze > requirements.txt
+
+<!--requirements file install-->
+pip install-r requirements.txt
+
+<!--to open python shell-->
+python manage.py shell
