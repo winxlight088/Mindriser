@@ -1,0 +1,30 @@
+{% extends "base.html"%}
+{% block title %}Create Task{% endblock title%}
+
+
+{% block body %}
+
+<h1>Edit task</h1>
+<div class="container">
+    {% if error %}
+        <div class="alert alert-warning" role="alert">
+            {{error_msg}}
+        </div>
+    {% endif %}
+    <form method="POST" action="/todolist/{{edit_task_key.pk}}/edit_task/"><!--the action is the url that the form will be sent to-(note the createtask in action is path from url of todo app)-->
+        {% csrf_token %}
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">title</label>
+          <input type="text" class="form-control" name ="title" value="{{edit_task_key.title}}" id="title" aria-describedby="emailHelp">
+        </div><!--  note the edit_task_key in value is the key from view.py of function edit_task(value), it access the database stored inside the key.  -->
+    
+        <div class="form-floating mb-3">
+            <textarea class="form-control" placeholder="Leave a comment here"  name="description" id="floatingTextarea">
+              {{edit_task_key.description}}
+            </textarea>
+            <label for="floatingTextarea">Description</label>
+          </div>
+       
+        <button type="submit" class="btn btn-primary">Update</button>
+
+{% endblock body%}

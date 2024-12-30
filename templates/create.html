@@ -1,0 +1,29 @@
+{% extends "base.html"%}
+{% block title %}Create Task{% endblock title%}
+
+
+{% block body %}
+<h1>Create task page</h1>
+<div class="container">
+    {% if error%}
+        <div class="alert alert-warning" role="alert">
+            {{error}}
+        </div>
+    {% endif %}
+    <form method="POST" action="createtask"><!--the action is the url that the form will be sent to-(note the createtask in action is path from url of todo app)-->
+        {% csrf_token %}
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">title</label>
+          <input type="text" class="form-control" name ="title" id="title" aria-describedby="emailHelp">
+        </div>
+    
+        <div class="form-floating mb-3">
+            <textarea class="form-control" placeholder="Leave a comment here" name="description" id="floatingTextarea"></textarea>
+            <label for="floatingTextarea">Description</label>
+          </div>
+       
+        <button type="submit" class="btn btn-primary">Create</button>
+    </form>
+
+</div>
+{%endblock body%}

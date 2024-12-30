@@ -1,0 +1,52 @@
+{% extends "base.html"%}
+
+{% block title %}Todolist{% endblock title%}
+
+
+{% block body %}
+<div class="container">
+    
+    <h2>Total Task: {{total_task}}</h2> <!-- in this accessing the key i.e total_task-->
+    <h3 class="text-success">Task Completed: {{comp_task}}</h3>
+    <h3 class="text-danger">Task Pending: {{pend_task}}</h3>
+
+    <table class="table">
+        <thead class="table-dark">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Title</th>
+                <th scope="col">Description</th>
+                <th scope="col">State</th>
+                <th scope="col">Action</th>
+                <th scope="col">Edit</th>
+                <th scope="col">Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for task in t %}
+            <tr>
+                <th scope="row">{{forloop.counter}}</th>
+                <td>{{task.title}}</td>
+                <td>{{task.description}}</td>
+                <td>
+                    {% if task.state %}
+                    <span class="text-success">Completed</span>
+                    {% else  %}
+                    <span class="text-danger">Pending</span>
+                </td>
+                {% endif %}
+                <td>
+                    <a href="{{task.id}}" class="btn btn-primary">Change</button>       
+                </td>
+                <td>
+                    <a href="{{task.id}}/edit_task/" class="btn btn-success">edit</button>            
+                </td>
+                <td>
+                    <a href="{{task.id}}/del_task/" class="btn btn-danger">Delete</button>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+  </table>
+</div>
+{%endblock body%}
