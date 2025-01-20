@@ -11,7 +11,7 @@ class Category(models.Model):
 class Food(models.Model):
     food_name = models.CharField(max_length=50)
     food_price = models.FloatField()
-    category = models.ForeignKey(Category, on_delete=models.CASCADE) #foreign key= category_id
+    category = models.ForeignKey(Category, on_delete= models.CASCADE) #foreign key= category_id
     def __str__(self):
         return f"{self.food_name} - {self.food_price}"
   
@@ -53,7 +53,8 @@ class Order(models.Model):
         return f"{self.user}"
     
 class OrderItem(models.Model):
-    order = models.ForeignKey(Order, on_delete=models.PROTECT)
-    food = models.ForeignKey(Food, on_delete=models.PROTECT)
+    #Using PROTECT means that you cannot delete the Order if there are any OrderItem instances associated with it.
+    order = models.ForeignKey(Order, on_delete=models.PROTECT, related_name = 'items')
+    food = models.ForeignKey(Food, on_delete=models.PROTECT, related_name = 'foodF')
     def __str__(self):
         return f"{self.order} - {self.food}"

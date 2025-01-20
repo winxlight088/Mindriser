@@ -26,7 +26,7 @@ class OrderItemInline(admin.TabularInline):
     model = OrderItem
     autocomplete_fields = ['food']
     # extra
-
+ 
 @admin.register(Order)
 class OrderAdmin(admin.ModelAdmin):
     list_display = ['user','order_status','total_price','payment_status','table']
