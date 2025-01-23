@@ -1,14 +1,20 @@
 <!-- install virtual environment --->
  pip install virtualenv
 
+<--create env file-->
+python -m venv env
+
+<--gitinnore file -->
+go to google and copy paste gitignore file from https://www.toptal.com/developers/gitignore
+
  <!-- activate virtual environment in cmd>-->
  env\Scripts\activate
 
- <!-- Install django in terminal-->
- pip install django
-
 <!-- create project-->
 django-admin start project myproject1 .
+
+ <!-- Install django in terminal-->
+ pip install django
 
 <!-- create app-->
 <!-- python manage.py <app_name>-->
@@ -18,7 +24,9 @@ python manage.py startapp todo
 python manage.py runserver
 
 <!-- INSTALL requirements-->
-pip install -r requirements.txt
+pip install -r requirements.txt 
+or 
+pip freeze > requirements.txt
 
 
 <!-- to open python shell-->
